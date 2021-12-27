@@ -87,8 +87,8 @@ This is the fan control CPU. Please mention the origination.
 
 #### Final
 > **Caution:** DO NOT USE THIS PHOTO AS REFERENCE! 
-> The wiring on this photo looks different from in the wiring image because this project
-> was learning by doing. So some `GND` and `VCC` wires are connected different. 
+> The wiring on this photo looks different from the wiring image because this project
+> was learning by doing. So some `GND` and `VCC` wires are connected different.
 
 ![final.jpg](images/final.jpg)
 
@@ -102,7 +102,7 @@ connected for future firmware updates.
 > selected preset mode will not change. 
 
 ### On and off
-####`airfilter/<hostname>/state`
+#### `airfilter/<hostname>/state`
 Returns the state `on` or `off`, while `off` represents knob position 0.
 
 #### `airfilter/<hostname>/set`
