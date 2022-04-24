@@ -9,6 +9,7 @@ also (!) manual with the knob (as originally intended).
 I use an ESP32 NodeMCU but an ESP8266 NodeMCU should also work fine.
 
 Via Home Assistant discovery the air filter will show up there as a fan-entity with three preset modes `1`, `2` and `3`.
+You can also control the fan via the percentage slider.
 
 ![entity.png](images/entity.png)
 
