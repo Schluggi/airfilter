@@ -149,6 +149,10 @@ fan:
        -  "3"
     payload_on: "on"
     payload_off: "off"
+    percentage_state_topic: "airfilter/<hostname>/speed/state"
+    percentage_command_topic: "airfilter/<hostname>/speed/set"    
+    speed_range_min: 1
+    speed_range_max: 3
 ```
 
 
