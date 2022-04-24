@@ -1,5 +1,5 @@
-# airfilter
-[![donate](https://img.shields.io/badge/donate-PayPal-blue.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KPG2MY37LCC24&source=url)
+# airfilter 
+<a href="https://www.buymeacoffee.com/schluggi" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/white_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 [![license](https://img.shields.io/badge/license-MIT-yellow.svg)](https://github.com/Schluggi/airfilter/blob/master/LICENSE.txt)
 
 > This is WIP! Some images are missing but the firmware works fine. 
