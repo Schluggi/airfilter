@@ -12,17 +12,17 @@ Via Home Assistant discovery the air filter will show up there as a fan-entity w
 
 ![entity.png](images/entity.png)
 
-## Table of contents (wip)
-- [Features]()
-- [What you need]()
-- [How to]()
-  - [Flashing]()
-  - [Teardown]()
-  - [Soldering]()
-- [MQTT]()
-- [Home Assistant]()
-- [Questions]()
-- [Credits]()
+## Table of contents
+- [Features](https://github.com/Schluggi/airfilter#features)
+- [What you need](https://github.com/Schluggi/airfilter#what-you-need)
+- [How to](https://github.com/Schluggi/airfilter#how-to)
+  - [Flashing](https://github.com/Schluggi/airfilter#flashing)
+  - [Teardown](https://github.com/Schluggi/airfilter#teardown)
+  - [Soldering and wiring](https://github.com/Schluggi/airfilter#soldering-and-wiring)
+- [MQTT](https://github.com/Schluggi/airfilter#mqtt)
+- [Home Assistant](https://github.com/Schluggi/airfilter#home-assistant)
+- [Questions](https://github.com/Schluggi/airfilter#questions)
+- [Credits](https://github.com/Schluggi/airfilter#credits)
 
 ## Features
 - Control the air filter via MQTT
