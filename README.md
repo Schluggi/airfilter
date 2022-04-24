@@ -114,8 +114,16 @@ Returns the current selected preset mode (`1`, `2` or `3`). This equals the knob
 Please also notice the *Addition info*.
 
 #### `airfilter/<hostname>/preset/set`
-By sending a payload with `0`, `1`, `2` or `3` the fan speed will change like setting the knob to these positions.
+By sending the payload `0`, `1`, `2` or `3` the fan speed will change like setting the knob to these positions.
 `0` will turn off the fan.
+
+### Speed / Percentage
+#### `airfilter/<hostname>/speed/state`
+Returns the current speed (`0`, `1`, `2` or `3`). This equals the knob position.
+
+#### `airfilter/<hostname>/speed/set`
+By sending the payload `0`, `1`, `2` or `3` the fan speed will change like setting the knob to these positions.
+`0` will turn off the fan. Analog to _/preset/set_.
 
 
 ## Home Assistant
