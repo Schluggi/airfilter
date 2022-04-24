@@ -2,7 +2,7 @@
 [![donate](https://img.shields.io/badge/donate-PayPal-blue.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KPG2MY37LCC24&source=url)
 [![license](https://img.shields.io/badge/license-MIT-yellow.svg)](https://github.com/Schluggi/airfilter/blob/master/LICENSE.txt)
 
-> This is WIP!
+> This is WIP! Some images are missing but the firmware works fine. 
 
 I've modified my IKEA Förnuftig to work with Home Assistant. After some ironing you can control the filter via MQTT and
 also (!) manual with the knob (as originally intended).
@@ -28,6 +28,8 @@ Via Home Assistant discovery the air filter will show up there as a fan-entity w
 - Control the air filter via MQTT
 - Control the air filter manual (as originally intended)
 - Home Assistant discovery
+  - Support for preset modes
+  - Support for percentage control
 
 ## What you need
 - ESP32 NodeMCU
