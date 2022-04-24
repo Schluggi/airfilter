@@ -33,8 +33,8 @@ static String mqttTopic = mqttMainTopic + "/" + hostname;
 static String lastWillTopic = mqttTopic + "/lastWill";
 static String stateTopic = mqttTopic + "/state";
 static String commandTopic = mqttTopic + "/set";
-static String presetStateTopic = mqttTopic + "/preset/state";
-static String presetModeStateTopic = mqttTopic + "/preset/set";
+static String presetModeSetTopic = mqttTopic + "/preset/set";
+static String presetModeStateTopic = mqttTopic + "/preset/state";
 
 
 static long lastOnlinePublished = 0;
@@ -117,12 +117,12 @@ void setLevel(int level){
 void onConnectionEstablished(){  
   // home assistnat discovery
   if (homeAssistantMqttDiscovery){
-    String payload = "{\"name\":\"" + hostname + " Airfilter\",\"stat_t\":\"airfilter/" + hostname + "/state\",\"cmd_t\":\"airfilter/" + hostname + "/set\",\"pr_modes\":[\"1\",\"2\",\"3\"],\"pr_mode_cmd_t\":\"airfilter/" + hostname + "/preset/preset_mode\",\"pr_mode_stat_t\":\"airfilter/" + hostname + "/preset/preset_mode_state\",\"pl_on\":\"on\",\"pl_off\":\"off\"}";
+    String payload = "{\"name\":\"" + hostname + " Airfilter\",\"stat_t\":\"airfilter/" + hostname + "/state\",\"cmd_t\":\"airfilter/" + hostname + "/set\",\"pr_modes\":[\"1\",\"2\",\"3\"],\"pr_mode_cmd_t\":\"airfilter/" + hostname + "/preset/set\",\"pr_mode_stat_t\":\"airfilter/" + hostname + "/preset/state\",\"pl_on\":\"on\",\"pl_off\":\"off\"}";
     client.publish(homeAssistantMqttPrefix + "/fan/" + hostname + "/config", payload, true);
   }
   
   // presets
-  client.subscribe(presetStateTopic.c_str(), [] (const String& payload){
+  client.subscribe(presetModeSetTopic.c_str(), [] (const String& payload){
     Serial.println("preset_mode received: " + payload);  
     setLevel(payload.toInt());
   });
