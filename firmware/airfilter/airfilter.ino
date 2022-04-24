@@ -33,8 +33,10 @@ static String mqttTopic = mqttMainTopic + "/" + hostname;
 static String lastWillTopic = mqttTopic + "/lastWill";
 static String stateTopic = mqttTopic + "/state";
 static String commandTopic = mqttTopic + "/set";
-static String presetModeSetTopic = mqttTopic + "/preset/set";
+static String presetModeCmdTopic = mqttTopic + "/preset/set";
 static String presetModeStateTopic = mqttTopic + "/preset/state";
+static String precentageCmdTopic = mqttTopic + "/speed/set";
+static String precentageStateTopic = mqttTopic + "/speed/state";
 
 
 static long lastOnlinePublished = 0;
@@ -84,6 +86,7 @@ void setLevel(int level){
     client.publish(stateTopic.c_str(), "off", true);
   }
   
+  client.publish(precentageStateTopic.c_str(), String(level), true);
   
   switch (level) {
     case 0:
@@ -117,16 +120,22 @@ void setLevel(int level){
 void onConnectionEstablished(){  
   // home assistnat discovery
   if (homeAssistantMqttDiscovery){
-    String payload = "{\"name\":\"" + hostname + " Airfilter\",\"stat_t\":\"airfilter/" + hostname + "/state\",\"cmd_t\":\"airfilter/" + hostname + "/set\",\"pr_modes\":[\"1\",\"2\",\"3\"],\"pr_mode_cmd_t\":\"airfilter/" + hostname + "/preset/set\",\"pr_mode_stat_t\":\"airfilter/" + hostname + "/preset/state\",\"pl_on\":\"on\",\"pl_off\":\"off\"}";
+    String payload = "{\"name\":\"" + hostname + " Airfilter\",\"stat_t\":\"airfilter/" + hostname + "/state\",\"cmd_t\":\"airfilter/" + hostname + "/set\",\"pr_modes\":[\"1\",\"2\",\"3\"],\"pr_mode_cmd_t\":\"airfilter/" + hostname + "/preset/set\",\"pr_mode_stat_t\":\"airfilter/" + hostname + "/preset/state\",\"pl_on\":\"on\",\"pl_off\":\"off\", \"pct_stat_t\":\"airfilter/" + hostname + "/speed/state\", \"pct_cmd_t\":\"airfilter/" + hostname + "/speed/set\", \"spd_rng_min\":\"1\", \"spd_rng_max\":\"3\"}";
     client.publish(homeAssistantMqttPrefix + "/fan/" + hostname + "/config", payload, true);
   }
   
-  // presets
-  client.subscribe(presetModeSetTopic.c_str(), [] (const String& payload){
+  // preset modes
+  client.subscribe(presetModeCmdTopic.c_str(), [] (const String& payload){
     Serial.println("preset_mode received: " + payload);  
     setLevel(payload.toInt());
   });
-
+ 
+  // speed / percentage
+  client.subscribe(precentageCmdTopic.c_str(), [] (const String& payload){
+    Serial.println("speed received: " + payload);
+    setLevel(payload.toInt());
+  });
+  
   // on & off / state
   client.subscribe(commandTopic.c_str(), [] (const String& payload){
     Serial.println("command received: " + payload);  
